@@ -1,12 +1,12 @@
 # Notes from Left Out's How To Hunt Workshop
 Compiled by Carly, December 2020
 
-##**Recommendations for a Rapid Ramp Up, 1 hour**
-- Watch skit
-- Attempt to solve Again! (consult notes if needed)
-- Watch the meta discussion (do not watch within the week of MH for recency bias)
-- Skim these notes
-- Give feedback on puzzle template
+## **Recommendations for a Rapid Ramp Up, 1 hour**
+- [Watch skit](https://www.youtube.com/watch?v=rMFi4wVVr7Y) (first 5 minutes)
+- Attempt to solve [Again!](https://github.com/carlyrobison/shower-pomelo-bot/blob/main/knowledge/how_to_hunt.md#example-puzzle-again) (~30 minutes) (consult notes if needed)
+- [Watch the meta discussion](https://www.youtube.com/watch?v=lv0F0kTMBL0) (15 minutes, do not watch within the week of MH for recency bias)
+- Skim these notes (5 minutes)
+- Give feedback on puzzle template (coming soon)
 
 ## Introduction to MITMH
 They introduced their workshop with a short humorous skit between Smutty Henry (anagram for Mystery Hunt) and a boy, Jimmy.
