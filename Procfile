@@ -1,1 +1,1 @@
-worker: api_libs/main.py
+worker: python api_libs/main.py
