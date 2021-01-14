@@ -1,0 +1,1 @@
+worker: api_libs/main.py
