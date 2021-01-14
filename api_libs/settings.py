@@ -53,20 +53,16 @@ STATICFILES_DIRS = [
 DISCORD_API_TOKEN = os.environ.get("DISCORD_API_TOKEN", None)
 
 # Discord server ID.
-DISCORD_GUILD_ID = os.environ.get("DISCORD_GUILD_ID", None)
 
 # Category (folder) to contain generated channels.
-DISCORD_PUZZLE_CATEGORY = os.environ.get("DISCORD_PUZZLE_CATEGORY", "puzzles")
-DISCORD_ARCHIVE_CATEGORY = os.environ.get("DISCORD_ARCHIVE_CATEGORY", "archive")
-DISCORD_PUZZLE_ANNOUNCEMENTS_CHANNEL = os.environ.get(
-    "DISCORD_PUZZLE_ANNOUNCEMENTS_CHANNEL", None
-)
-DISCORD_DEVS_ROLE = os.environ.get("DISCORD_DEVS_ROLE", "dev")
+try:
+    DISCORD_PUZZLE_CATEGORY = os.environ["DISCORD_PUZZLE_CATEGORY"]
+    DISCORD_ARCHIVE_CATEGORY = os.environ["DISCORD_ARCHIVE_CATEGORY"]
+except KeyError as e:
+    logger.warn(
+        f"No {e.args[0]} found in environment. Automatic category creation disabled."
+    )
 
-# Discord Bot settings
-
-# TODO(akirabaruah): This is a hack. Find a better way to set the bot's hunt.
-BOT_ACTIVE_HUNT = os.environ.get("BOT_ACTIVE_HUNT", None)
 
 # Google Drive API
 try:
