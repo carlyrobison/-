@@ -80,6 +80,7 @@ try:
     }
     GOOGLE_DRIVE_PERMISSIONS_SCOPES = ["https://www.googleapis.com/auth/drive"]
     GOOGLE_DRIVE_HUNT_FOLDER_ID = os.environ["GOOGLE_DRIVE_HUNT_FOLDER_ID"]
+    GOOGLE_DRIVE_SOLVED_FOLDER_ID = os.environ["GOOGLE_DRIVE_SOLVED_FOLDER_ID"]
     GOOGLE_SHEETS_TEMPLATE_FILE_ID = os.environ["GOOGLE_SHEETS_TEMPLATE_FILE_ID"]
 except KeyError as e:
     GOOGLE_API_AUTHN_INFO = None

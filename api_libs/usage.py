@@ -24,15 +24,17 @@ Shower Pomelo Bot is a discord-first bot for creating puzzle solving spreadsheet
 - !new_puzzle
 - !solve_puzzle
 
+Discord is the source of truth for puzzles (secondary to the hunt website), and as such there is a 1 puzzle -> 1 channel -> 1 sheet relationship.
+
 In the event that it fails, you can perform the equivalent steps manually.
 
 For new_puzzle:
 1. Duplicate the template spreadsheet (rename it to something relevant)
 2. Make a new Discord chat channel in the PUZZLES category
-3. Store the spreadsheet link (in the channel description? pins?)
-4. Announce the new puzzle in the hub channel!
+3. Store the spreadsheet link in the channel description
+4. Announce the new puzzle channel in the hub channel!
 
-When you are solving, feel free to make subfolders for rounds and categories if it is helpful.
+When you are solving, feel free to make subfolders for rounds if it is helpful. You can modify and rename both the discord channel arrangements and the drive folders.
 
 For solve_puzzle:
 1. Move the spreadsheet to the SOLVED folder
@@ -40,7 +42,8 @@ For solve_puzzle:
 3. Announce in the general channel that a puzzle has been solved!
 
 There's also some helper functions:
-- !help (lists commands)
-- !datamodel (lists this)
-- !summary (lists number of puzzles(sheets) outstanding and number of puzzles in the archive folder)
+- !help (lists commands) [TODO]
+- !datamodel (lists this) [TODO]
+- !summary (lists number of puzzles(sheets) outstanding and number of puzzles in the archive folder) [TODO]
+- !debug_info (lists current channel id and category id in debug)
 """

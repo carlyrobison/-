@@ -62,6 +62,7 @@ async def new_puzzle(message):
 
 	# Update new discord channel with data
 	await new_channel.edit(topic=sheet_url, reason='Made new channel')
+	# TODO suppress link previews
 	conclusion_message += "Your sheet is now available at: " + sheet_url
 	await new_channel.send(conclusion_message)
 

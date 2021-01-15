@@ -46,6 +46,9 @@ class GoogleDriveAPI:
             body=req_body,
         ).execute()
 
+    # Make sheet with name and puzzle URL
+    # TODO: Put title in sheet
+    # TODO: link from sheet to discord channel
     def make_sheet(self, name, puzzle_url=''):
         req_body = {"name": name}
         # copy template sheet
@@ -61,6 +64,22 @@ class GoogleDriveAPI:
             self.add_puzzle_link_to_sheet(puzzle_url, file["id"])
 
         return sheet_url
+
+    # Move sheet to SOLVED folder
+    def solve_sheet(self, sheet_url):
+        spreadsheet_id = extract_id_from_sheets_url(sheet_url)
+
+        # Getting the existing title so we can prepend [SOLVED] to it
+        # file = self.sheets_service().spreadsheets().get(
+        #     spreadsheetId=spreadsheet_id,
+        #     fields="sheets.properties.title,sheets.properties.sheetId,sheets.protectedRanges",
+        # ).execute()
+
+        self.drive_service().files().update(
+            fileId=spreadsheet_id,
+            addParents=settings.GOOGLE_DRIVE_SOLVED_FOLDER_ID,
+            fields='id,parents'
+            ).execute();
 
 
 	# spreadsheet = sheets_service().spreadsheets().create(body=spreadsheet,
