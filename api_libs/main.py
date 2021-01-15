@@ -4,9 +4,6 @@ import settings as settings
 
 logging.basicConfig(level=logging.INFO)
 
-
-
-
 logging.info(
     f"Hey I'm a bot!"
 )

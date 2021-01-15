@@ -58,6 +58,7 @@ DISCORD_API_TOKEN = os.environ.get("DISCORD_API_TOKEN", None)
 try:
     DISCORD_PUZZLE_CATEGORY = os.environ["DISCORD_PUZZLE_CATEGORY"]
     DISCORD_ARCHIVE_CATEGORY = os.environ["DISCORD_ARCHIVE_CATEGORY"]
+    DISCORD_PUZZLEANNOUNCE_CATEGORY = os.environ["DISCORD_PUZZLEANNOUNCE_CATEGORY"]
 except KeyError as e:
     logger.warn(
         f"No {e.args[0]} found in environment. Automatic category creation disabled."
