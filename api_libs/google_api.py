@@ -68,7 +68,6 @@ class GoogleDriveAPI:
                 body=req_body,
                 fields="id,webViewLink,permissions",
             ).execute()
-        print(file)
         sheet_url = file["webViewLink"]
 
         self.add_puzzle_title_to_sheet(name, file["id"])

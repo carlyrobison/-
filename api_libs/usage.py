@@ -1,3 +1,5 @@
+
+# TODO: refactor with Discord Commands https://discordpy.readthedocs.io/en/latest/ext/commands/commands.html
 class Command:
 	# Takes an invocation, e.g. "!new_puzzle",
 	# explanation, e.g. "Makes a new puzzle spreadsheet and channel. Format !new_puzzle {name} {url} without the braces"
