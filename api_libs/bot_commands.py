@@ -64,12 +64,15 @@ async def new_puzzle(client, message):
 async def solve_puzzle(client, message):
 	await message.channel.send('Solved puzzle request detected!')
 
+	answer = message.content[13:]
+	print('answer', answer)
+
 	# Get the spreadsheet url from the channel topic
 	sheet_url = message.channel.topic # we hope nobody changed it
 	if sheet_url is None or sheet_url == '':
 		await message.channel.send('Unable to detect spreadsheet url, please move spreadsheet manually')
 	else: # Move the spreadsheet to the SOLVED folder
-		gDrive.solve_sheet(sheet_url);
+		gDrive.solve_sheet(sheet_url, answer);
 	# Move the discord channel to the ARCHIVED category (TODO)
 	for cat in message.guild.categories: # TODO optimize
 		if cat.name == settings.DISCORD_ARCHIVE_CATEGORY:

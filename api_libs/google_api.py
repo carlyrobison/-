@@ -3,7 +3,7 @@ from google.oauth2 import service_account
 import settings as settings
 
 
-# helper
+# helper function
 def extract_id_from_sheets_url(url):
     """
     Assumes `url` is of the form
@@ -46,9 +46,20 @@ class GoogleDriveAPI:
             body=req_body,
         ).execute()
 
+    def add_puzzle_title_to_sheet(self, puzzle_title, sheet_id):
+        req_body = {
+            "values": [
+                [puzzle_title],
+            ]
+        }
+        self.sheets_service().spreadsheets().values().update(
+            spreadsheetId=sheet_id,
+            range="B1:B1",
+            valueInputOption="USER_ENTERED",
+            body=req_body,
+        ).execute()
+
     # Make sheet with name and puzzle URL
-    # TODO: Put title in sheet
-    # TODO: link from sheet to discord channel
     def make_sheet(self, name, puzzle_url=''):
         req_body = {"name": name}
         # copy template sheet
@@ -60,36 +71,38 @@ class GoogleDriveAPI:
         print(file)
         sheet_url = file["webViewLink"]
 
+        self.add_puzzle_title_to_sheet(name, file["id"])
         if puzzle_url != '':
             self.add_puzzle_link_to_sheet(puzzle_url, file["id"])
 
         return sheet_url
 
-    # Move sheet to SOLVED folder
-    def solve_sheet(self, sheet_url):
+    # Move sheet to SOLVED folder, mark it as solved, return the name of the puzzle
+    def solve_sheet(self, sheet_url, answer):
         spreadsheet_id = extract_id_from_sheets_url(sheet_url)
 
-        # Getting the existing title so we can prepend [SOLVED] to it
-        # file = self.sheets_service().spreadsheets().get(
-        #     spreadsheetId=spreadsheet_id,
-        #     fields="sheets.properties.title,sheets.properties.sheetId,sheets.protectedRanges",
-        # ).execute()
+        # Getting the existing title so we can prepend [SOLVED: answer] to it
+        file = self.drive_service().files().get(
+            fileId=spreadsheet_id,
+            fields="name",
+        ).execute()
 
+        existing_title = file['name']
+        new_title = '[SOLVED: {0}] {1}'.format(answer.upper(), existing_title)
+
+        reqBody = {'name': new_title};
+        # Set the title as solved and move it to the archives
         self.drive_service().files().update(
             fileId=spreadsheet_id,
             addParents=settings.GOOGLE_DRIVE_SOLVED_FOLDER_ID,
-            fields='id,parents'
+            body=reqBody,
+            fields='id,parents,name'
             ).execute();
-
-
-	# spreadsheet = sheets_service().spreadsheets().create(body=spreadsheet,
- #                                    fields='spreadsheetId').execute()
-	# print('Spreadsheet ID: {0}'.format(spreadsheet.get('spreadsheetId')))
-	# return spreadsheet.get('url')
-
+        return existing_title
 
 # IGNORING CODE
 # transfer new sheet ownership back to OG owner, so that scripts can run
+# (bot runs just fine)
 def transfer_ownership(file):
     permission = next(
         p for p in file["permissions"] if p["emailAddress"] == self._sheets_owner
