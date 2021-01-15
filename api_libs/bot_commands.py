@@ -56,7 +56,7 @@ async def new_puzzle(client, message):
 async def solve_puzzle(client, message):
 	await message.channel.send('Solved puzzle request detected!')
 
-	answer = message.content.split(' ')[1:].join().upper()
+	answer = ' '.join(message.content.split(' ')[1:]).upper()
 	puzzle_name = message.channel
 
 	# Get the spreadsheet url from the channel topic
@@ -69,6 +69,7 @@ async def solve_puzzle(client, message):
 
 	archiveCategory = client.get_channel(int(settings.DISCORD_ARCHIVE_CATEGORY))
 	await message.channel.edit(category=archiveCategory)
+	await message.channel.send('Puzzle **{0}** solved with answer {1}!'.format(puzzle_name, answer));
 
 	# Announce in the general channel that a puzzle has been solved!
 	announce_channel = get_puzzle_announcements_channel(client)
