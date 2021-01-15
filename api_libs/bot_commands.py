@@ -90,8 +90,6 @@ PUBLIC_COMMANDS = [
 async def help_cmd(client, message):
 	return await message.channel.send('\n'.join([c.display() for c in PUBLIC_COMMANDS]))
 
-# - $summary (lists number of puzzles(sheets) outstanding and number of puzzles in the archive folder) [TODO]
-
 HIDDEN_COMMANDS = [
 	usage.Command("$new", "Same as $new_puzzle", new_puzzle),
 	usage.Command("$add_puzzle", "Same as $new_puzzle", new_puzzle),
@@ -103,6 +101,4 @@ HIDDEN_COMMANDS = [
 ]
 
 COMMANDS = PUBLIC_COMMANDS + HIDDEN_COMMANDS
-
-
 
