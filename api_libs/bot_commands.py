@@ -48,7 +48,7 @@ async def new_puzzle(client, message):
 
 	# Update new discord channel with data
 	await new_channel.edit(topic=sheet_url, reason='Made new channel')
-	await new_channel.send("Your sheet is now available at: <" + sheet_url + ">")
+	await new_channel.send("Your sheet is now available at: <" + sheet_url + ">\nThe puzzle can be found at <" + msg_url + ">")
 
 	await message.channel.send("New puzzle created. See channel <#{0}> for details".format(new_channel.id))
 	return await get_puzzle_announcements_channel(client).send("New puzzle **{0}** created in <#{1}>".format(puzzle_name, new_channel.id))
