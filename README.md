@@ -6,27 +6,27 @@ Automating some of the tedium of organizing when we unlock a new puzzle can free
 ## What?
 Miscellaneous bot and code for the Shower Pomelo MIT Mystery Hunt team.
 
-Hopefully:
-- Discordbot
+Pieces:
+- Discord bot
 - Google Sheets integration
-- Hosted online somewhere
-- Code repository for those puzzles that need it
-- Knowledge repository
+- Hosted online (currently set up for Heroku)
+- (TODO) Code repository for those puzzles that need it
+- (In progress) Knowledge repository
+
+Planned improvements are tracked as GitHub Issues.
 
 ### Discordbot
-- Ideally can give pingable roles (new puzzle, meta squad)
 - Command for new puzzle creates google sheet, new channel, publishes link to sheet, pings @new puzzle in channel, and informs hub
-- Command to list all solved/unsolved puzzles (keeps list? reads from shared folder?)
-- Webhooks needed here?
+- Command for solving a puzzle marks and moves the Google sheet, moves the Discord channel to the archive, and informs Hub
 
 ### Google Sheets integration
-- Host google account?
-- Shared folder
-- Make a copy of a template sheet, name it, put it in the applicable folder
-- Extra: Rename sheet, put links to sheets places
+- Shared folder needed
+- Uses a service account
+- Makes a copy of a template sheet, names it, puts it in the applicable folder
+- Updates the title of the sheet when solved
 
 ### Hosted online somewhere
-- Heroku? Have enough free dyno hours
+- Currently on free tier of Heroku
 
 ### Code repository for those puzzles that need it
 Commonly used functions (assuming python):
