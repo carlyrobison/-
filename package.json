@@ -1,0 +1,21 @@
+{
+  "name": "statusboard",
+  "version": "1.0.0",
+  "description": "Displays status of puzzles",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "engines": {
+    "node": "16.x"
+  },
+  "dependencies": {
+    "express": "^4.17.2",
+    "googleapis": "^92.0.0",
+    "nodemon": "^2.0.15",
+    "socket.io": "^2.2.0"
+  },
+  "author": "carlyrobison",
+  "license": "MIT"
+}
