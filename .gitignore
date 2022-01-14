@@ -133,4 +133,3 @@ api_libs/faked_settings.py
 /node_modules
 npm-debug.log
 .DS_Store
-/*.env
