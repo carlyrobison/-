@@ -28,6 +28,9 @@ Planned improvements are tracked as GitHub Issues.
 ### Hosted online somewhere
 - Currently on free tier of Heroku
 
+## Heroku notes
+https://devcenter.heroku.com/articles/using-multiple-buildpacks-for-an-app set both Python and nodejs buildpacks
+
 ### Code repository for those puzzles that need it
 Commonly used functions (assuming python):
 - CSV to Numpy array

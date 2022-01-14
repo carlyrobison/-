@@ -67,18 +67,6 @@ except KeyError as e:
 
 # Google Drive API
 try:
-    GOOGLE_API_AUTHN_INFO = {
-        "type": "service_account",
-        "project_id": os.environ["GOOGLE_API_PROJECT_ID"],
-        "private_key_id": os.environ["GOOGLE_API_PRIVATE_KEY_ID"],
-        "private_key": os.environ["GOOGLE_API_PRIVATE_KEY"].replace("\\n", "\n"),
-        "client_email": os.environ["GOOGLE_API_CLIENT_EMAIL"],
-        "client_id": os.environ["GOOGLE_API_CLIENT_ID"],
-        "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-        "token_uri": "https://oauth2.googleapis.com/token",
-        "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-        "client_x509_cert_url": os.environ["GOOGLE_API_X509_CERT_URL"],
-    }
     GOOGLE_DRIVE_PERMISSIONS_SCOPES = ["https://www.googleapis.com/auth/drive"]
     GOOGLE_DRIVE_HUNT_FOLDER_ID = os.environ["GOOGLE_DRIVE_HUNT_FOLDER_ID"]
     GOOGLE_DRIVE_SOLVED_FOLDER_ID = os.environ["GOOGLE_DRIVE_SOLVED_FOLDER_ID"]
