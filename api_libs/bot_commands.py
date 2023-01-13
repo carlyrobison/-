@@ -76,8 +76,8 @@ async def solve_puzzle(client, message):
 	announce_channel = get_puzzle_announcements_channel(client)
 	return await announce_channel.send('Puzzle **{0}** solved with answer {1}!'.format(puzzle_name, answer));
 
-async def datamodel(client, message):
-	return await message.channel.send(usage.DATA_MODEL)
+# async def datamodel(client, message):
+# 	return await message.channel.send(usage.DATA_MODEL)
 
 async def debug_info(client, message):
 	print(message.channel, message.channel.category, message.guild, message.content)

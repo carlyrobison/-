@@ -1,6 +1,8 @@
 import discord
 import bot_commands
 import settings as settings
+import bot_commands_v2
+from discord.ext import commands
 
 client = discord.Client()
 import usage
@@ -31,3 +33,5 @@ async def on_message(message):
 
 def run_discordbot(API_TOKEN):
 	client.run(API_TOKEN)
+	bot.run(API_TOKEN)
+
