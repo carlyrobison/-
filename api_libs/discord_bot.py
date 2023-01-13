@@ -2,9 +2,10 @@ import discord
 import bot_commands
 import settings as settings
 import bot_commands_v2
+# import bot_tasks
 from discord.ext import commands
 
-client = discord.Client()
+client = discord.Client(intents=discord.Intents.all())
 import usage
 
 # when bot is ready to be used
@@ -34,4 +35,5 @@ async def on_message(message):
 def run_discordbot(API_TOKEN):
 	client.run(API_TOKEN)
 	bot_commands_v2.bot.run(API_TOKEN)
+	# bot_tasks.tasker.run(API_TOKEN)
 
