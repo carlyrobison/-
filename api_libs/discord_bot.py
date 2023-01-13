@@ -2,7 +2,8 @@ import discord
 import bot_commands
 import settings as settings
 import bot_commands_v2
-# import bot_tasks
+import bot_tasks
+import asyncio
 from discord.ext import commands
 
 client = discord.Client(intents=discord.Intents.all())
@@ -33,7 +34,10 @@ async def on_message(message):
 	return await message.channel.send("Command detected, but it doesn't match what I know. Try $help to list them.")
 
 def run_discordbot(API_TOKEN):
-	client.run(API_TOKEN)
-	bot_commands_v2.bot.run(API_TOKEN)
-	# bot_tasks.tasker.run(API_TOKEN)
+	loop = asyncio.get_event_loop()
+	loop.create_task(client.start(API_TOKEN))
+	loop.create_task(bot_commands_v2.bot.start(API_TOKEN))
+	loop.create_task(bot_tasks.tasker.start(API_TOKEN))
+	loop.run_forever()
+	
 
