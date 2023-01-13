@@ -2,6 +2,7 @@ import settings as settings
 import google_api
 import usage
 from discord.ext import commands
+import discord
 
 gDrive = google_api.GoogleDriveAPI()
 
@@ -14,10 +15,8 @@ gDrive = google_api.GoogleDriveAPI()
 # async def help_cmd(client, message):
 # 	return await message.channel.send('\n'.join([c.display() for c in PUBLIC_COMMANDS]))
 
-bot = commands.Bot(command_prefix='$')
+bot = commands.Bot(intents=discord.Intents.all(), command_prefix='$')
 
 @bot.command()
-async def datamodel(ctx, args):
+async def datamodel(ctx):
     return await ctx.send(usage.DATA_MODEL)
-
-bot.add_command(datamodel)

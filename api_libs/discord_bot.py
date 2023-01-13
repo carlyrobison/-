@@ -33,5 +33,5 @@ async def on_message(message):
 
 def run_discordbot(API_TOKEN):
 	client.run(API_TOKEN)
-	bot.run(API_TOKEN)
+	bot_commands_v2.bot.run(API_TOKEN)
 
