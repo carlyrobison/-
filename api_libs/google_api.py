@@ -1,6 +1,6 @@
 from googleapiclient.discovery import build
 from google.oauth2 import service_account
-import settings as settings
+import faked_settings as settings
 
 
 # helper function

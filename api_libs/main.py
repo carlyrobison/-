@@ -1,6 +1,6 @@
 import logging
 import discord_bot
-import settings as settings
+import faked_settings as settings
 
 logging.basicConfig(level=logging.INFO)
 

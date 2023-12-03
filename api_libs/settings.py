@@ -56,9 +56,9 @@ DISCORD_API_TOKEN = os.environ.get("DISCORD_API_TOKEN", None)
 
 # Category (folder) to contain generated channels.
 try:
-    DISCORD_PUZZLE_CATEGORY = os.environ["DISCORD_PUZZLE_CATEGORY"]
-    DISCORD_ARCHIVE_CATEGORY = os.environ["DISCORD_ARCHIVE_CATEGORY"]
-    DISCORD_PUZZLEANNOUNCE_CHANNEL = os.environ["DISCORD_PUZZLEANNOUNCE_CHANNEL"]
+    DISCORD_PUZZLE_CATEGORY = 1063308106748149810
+    DISCORD_ARCHIVE_CATEGORY = 1063307803973922816
+    DISCORD_PUZZLEANNOUNCE_CHANNEL = 1061855424195862649
 except KeyError as e:
     logger.warn(
         f"No {e.args[0]} found in environment. Automatic category creation disabled."

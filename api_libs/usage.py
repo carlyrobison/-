@@ -1,5 +1,5 @@
 
-import settings as settings
+import faked_settings as settings
 
 class Command:
 	# Takes an invocation, e.g. "!new_puzzle",

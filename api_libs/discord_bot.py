@@ -35,8 +35,8 @@ async def on_message(message):
 
 def run_discordbot(API_TOKEN):
 	loop = asyncio.get_event_loop()
-	loop.create_task(client.start(API_TOKEN))
-	loop.create_task(bot_commands_v2.bot.start(API_TOKEN))
+	# loop.create_task(client.start(API_TOKEN))
+	# loop.create_task(bot_commands_v2.bot.start(API_TOKEN))
 	loop.create_task(bot_tasks.tasker.start(API_TOKEN))
 	loop.run_forever()
 	
