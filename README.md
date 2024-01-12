@@ -61,5 +61,7 @@ kubectl create secret generic gcp \
 --from-literal=GOOGLE_SHEETS_TEMPLATE_FILE_ID= \
 --from-literal=DISCORD_PUZZLEANNOUNCE_CHANNEL= \
 --from-literal=DISCORD_PUZZLE_CATEGORY= \
---from-literal=DISCORD_ARCHIVE_CATEGORY=
+--from-literal=DISCORD_ARCHIVE_CATEGORY= \
+--from-literal=GOOGLE_API_CLIENT_EMAIL= \
+--from-literal=GOOGLE_API_PRIVATE_KEY= 
 ```
