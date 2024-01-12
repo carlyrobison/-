@@ -64,8 +64,20 @@ except KeyError as e:
         f"No {e.args[0]} found in environment. Automatic category creation disabled."
     )
 
-
 # Google Drive API
+try:
+    GOOGLE_DRIVE_HUNT_FOLDER_ID = os.environ["GOOGLE_DRIVE_HUNT_FOLDER_ID"]
+    GOOGLE_DRIVE_SOLVED_FOLDER_ID = os.environ["GOOGLE_DRIVE_SOLVED_FOLDER_ID"]
+    GOOGLE_SHEETS_TEMPLATE_FILE_ID = os.environ["GOOGLE_SHEETS_TEMPLATE_FILE_ID"]
+except KeyError as e:
+    logger.warn(
+        f"No {e.args[0]} found in environment. Automatic sheets creation disabled."
+    )
+
+
+GOOGLE_DRIVE_PERMISSIONS_SCOPES = ["https://www.googleapis.com/auth/drive"]
+
+# Google Service Account
 try:
     GOOGLE_API_AUTHN_INFO = {
         "type": "service_account",
@@ -79,10 +91,6 @@ try:
         "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
         "client_x509_cert_url": os.environ["GOOGLE_API_X509_CERT_URL"],
     }
-    GOOGLE_DRIVE_PERMISSIONS_SCOPES = ["https://www.googleapis.com/auth/drive"]
-    GOOGLE_DRIVE_HUNT_FOLDER_ID = os.environ["GOOGLE_DRIVE_HUNT_FOLDER_ID"]
-    GOOGLE_DRIVE_SOLVED_FOLDER_ID = os.environ["GOOGLE_DRIVE_SOLVED_FOLDER_ID"]
-    GOOGLE_SHEETS_TEMPLATE_FILE_ID = os.environ["GOOGLE_SHEETS_TEMPLATE_FILE_ID"]
 except KeyError as e:
     GOOGLE_API_AUTHN_INFO = None
     logger.warn(

@@ -16,12 +16,13 @@ def extract_id_from_sheets_url(url):
 
 class GoogleDriveAPI:
     def __init__(self):
-        if settings.GOOGLE_API_AUTHN_INFO is None:
-            print('No google drive integration!')
-        self._credentials = service_account.Credentials.from_service_account_info(
-            settings.GOOGLE_API_AUTHN_INFO,
-            scopes=settings.GOOGLE_DRIVE_PERMISSIONS_SCOPES,
-        )
+        # if settings.GOOGLE_API_AUTHN_INFO is None:
+        #     print('No google drive integration!')
+        # self._credentials = service_account.Credentials.from_service_account_info(
+        #     settings.GOOGLE_API_AUTHN_INFO,
+        #     scopes=settings.GOOGLE_DRIVE_PERMISSIONS_SCOPES,
+        # )
+        pass
 
     def sheets_service(self):
         return build(
