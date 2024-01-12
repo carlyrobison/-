@@ -49,3 +49,17 @@ docker build -t carlyrobison/shower-pomelo-bot:latest .
 ```bash
 docker push carlyrobison/shower-pomelo-bot:latest
 ```
+
+## Secrets
+
+Running in k8s requires the following secret to be created:
+
+```bash
+kubectl create secret generic gcp \
+--from-literal=GOOGLE_DRIVE_HUNT_FOLDER_ID= \
+--from-literal=GOOGLE_DRIVE_SOLVED_FOLDER_ID= \
+--from-literal=GOOGLE_SHEETS_TEMPLATE_FILE_ID= \
+--from-literal=DISCORD_PUZZLEANNOUNCE_CHANNEL= \
+--from-literal=DISCORD_PUZZLE_CATEGORY= \
+--from-literal=DISCORD_ARCHIVE_CATEGORY=
+```
