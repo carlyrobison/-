@@ -5,11 +5,11 @@ import usage
 gDrive = google_api.GoogleDriveAPI()
 
 def convert_to_server_friendly_name(title):
-	title = [c if (c.isalpha() or c == ' ') else '' for c in list(title)] # strip nonalphabetic
-	title = ['_' if c == ' ' else c for c in title] # convert spaces to underscores
+	title = [c if (c.isalnum() or c == ' ') else '' for c in list(title)] # strip nonalphanumeric
+	title = ['-' if c == ' ' else c for c in title] # convert spaces to dashes
 	title = ''.join(title)
 	if len(title) < 1:
-		raise NameError('Must provide a name that has some alphabetic characters')
+		raise NameError('Must provide a name that has some alphanumeric characters')
 	return title
 
 def get_puzzle_announcements_channel(client):
