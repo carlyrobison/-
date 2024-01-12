@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: primary
-          image: carlyrobison/shower-pomelo-bot:latest
+          image: fjmacagno/shower-pomelo-bot:latest
           imagePullPolicy: Always
           resources:
             limits:
