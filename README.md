@@ -36,4 +36,16 @@ Commonly used functions (assuming python):
 - SAT solver
 - Grid game model?
 
+## Docker
 
+### Build
+
+```bash
+docker build -t carlyrobison/shower-pomelo-bot:latest .
+```
+
+### Push
+
+```bash
+docker push carlyrobison/shower-pomelo-bot:latest
+```

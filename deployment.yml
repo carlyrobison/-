@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shower-pomelo-bot
+  namespace: default
+  labels:
+    app: shower-pomelo-bot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shower-pomelo-bot
+  template:
+    metadata:
+      labels:
+        app: shower-pomelo-bot
+    spec:
+      containers:
+        - name: primary
+          image: carlyrobison/shower-pomelo-bot:latest
+          imagePullPolicy: Always
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          envFrom:
+            - secretRef:
+                name: shower-pomelo-bot
