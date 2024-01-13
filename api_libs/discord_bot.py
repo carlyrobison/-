@@ -24,7 +24,9 @@ async def on_message(message):
 	# finds the first command that matches
 	for command in bot_commands.COMMANDS:
 		if command.matches(message.content):
+			print(f'Running command {command.invocation}')
 			return await command.invoke(client, message)
+	print(f'Command not found: {message.content}')
 
 	# if starts with command but not sure what
 	return await message.channel.send("Command detected, but it doesn't match what I know. Try $help to list them.")
