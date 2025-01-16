@@ -18,6 +18,7 @@ Planned improvements are tracked as GitHub Issues.
 ### Discordbot
 - Command for new puzzle creates google sheet, new channel, publishes link to sheet, pings @new puzzle in channel, and informs hub
 - Command for solving a puzzle marks and moves the Google sheet, moves the Discord channel to the archive, and informs Hub
+- Use `$help` to list current commands
 
 ### Google Sheets integration
 - Shared folder needed
@@ -26,7 +27,8 @@ Planned improvements are tracked as GitHub Issues.
 - Updates the title of the sheet when solved
 
 ### Hosted online somewhere
-- Currently on free tier of Heroku
+- Currently on free tier of Heroku.
+- Can also run in Docker, see below:
 
 ### Code repository for those puzzles that need it
 Commonly used functions (assuming python):
